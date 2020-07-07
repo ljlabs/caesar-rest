@@ -50,8 +50,7 @@ WORKDIR /root
 
 COPY . $INSTALL_DIR
 
-RUN git clone https://github.com/SKA-INAF/caesar-rest.git && \
-    cd caesar-rest && \
+RUN cd caesar-rest && \
     python setup.py sdist bdist_wheel && \
     python setup.py build && \
     python setup.py install --prefix=$INSTALL_DIR
@@ -62,6 +61,7 @@ RUN cp /root/caesar-rest/config/uwsgi/uwsgi.ini $INSTALL_DIR/config && \
     rm -rf /root/caesar-rest/
 
 ENV PATH $INSTALL_DIR/bin:$PATH
+ENV PYTHONPATH $INSTALL_DIR/lib/python2.7/site-packages:\$PYTHONPATH
 
 RUN adduser --disabled-password --gecos "" caesar && \
     mkdir -p /home/caesar && \
@@ -74,14 +74,3 @@ EXPOSE 8080
 COPY start_caesar.sh /
 
 CMD ["/start_caesar.sh"]
-
-
-
-
-WORKDIR /opt/food-ebucks-mft
-
-# because python packaging is bad
-RUN pip install . && python setup.py install
-
-ENTRYPOINT  ["/usr/local/bin/ebucks_mft"]
-CMD ["--workers", "1"]
