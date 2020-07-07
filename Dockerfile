@@ -48,7 +48,7 @@ RUN python -m pip install itsdangerous==0.24 MarkupSafe==0.23 pyyaml
 
 WORKDIR /root
 
-COPY . $INSTALL_DIR
+COPY . /root/caesar-rest
 
 RUN cd caesar-rest && \
     python setup.py sdist bdist_wheel && \
@@ -71,6 +71,4 @@ RUN adduser --disabled-password --gecos "" caesar && \
 
 EXPOSE 8080
 
-COPY start_caesar.sh /
-
-CMD ["/start_caesar.sh"]
+CMD ["/root/caesar-rest/start_caesar.sh"]
