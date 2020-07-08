@@ -71,4 +71,6 @@ RUN adduser --disabled-password --gecos "" caesar && \
 
 EXPOSE 8080
 
-CMD ["/root/caesar-rest/start_caesar.sh"]
+COPY start_caesar.sh .
+COPY init.sh /
+RUN chmod +x /init.sh
