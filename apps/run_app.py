@@ -43,8 +43,8 @@ def get_args():
 	parser = argparse.ArgumentParser(description="Parse args.")
 
 	# - Specify cmd options
-	parser.add_argument('-datadir','--datadir', dest='datadir', default='/opt/caesar-rest/data', required=False, type=str, help='Directory where to store uploaded data') 
-	parser.add_argument('-jobdir','--jobdir', dest='jobdir', default='/opt/caesar-rest/jobs', required=False, type=str, help='Directory where to store jobs') 
+	parser.add_argument('-datadir','--datadir', dest='datadir', default='/workspace/data', required=False, type=str, help='Directory where to store uploaded data') 
+	parser.add_argument('-jobdir','--jobdir', dest='jobdir', default='/workspace/jobs', required=False, type=str, help='Directory where to store jobs') 
 	parser.add_argument('--debug', dest='debug', action='store_true')	
 	parser.set_defaults(debug=True)	
 
