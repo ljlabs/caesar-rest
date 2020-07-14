@@ -62,6 +62,7 @@ RUN cp /root/caesar-rest/config/uwsgi/uwsgi.ini $INSTALL_DIR/config && \
 
 ENV PATH $INSTALL_DIR/bin:$PATH
 ENV PYTHONPATH $INSTALL_DIR/lib/python2.7/site-packages:\$PYTHONPATH
+ENV CAESAR_DIR /opt/caesar
 
 RUN adduser --disabled-password --gecos "" caesar && \
     mkdir -p /home/caesar && \
