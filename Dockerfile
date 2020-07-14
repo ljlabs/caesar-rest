@@ -17,7 +17,7 @@ RUN apt-get update -y && apt-get install -y rabbitmq-server --fix-missing
 ###############################
 RUN apt-get update -y && apt-get install -y python-pip && python -m pip install pip~=20.1.1
 
-RUN python -m pip install celery[librabbitmq,redis]
+RUN python -m pip install celery[pyamqp,redis]==4.4.2
 
 ###############################
 #      uwsgi
