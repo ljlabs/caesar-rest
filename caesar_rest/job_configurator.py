@@ -277,7 +277,7 @@ class SFinderConfigurator(AppConfigurator):
 		AppConfigurator.__init__(self)
 
 		# - Define cmd name
-		self.cmd= '/opt/caesar/scripts/SFinderSubmitter.sh'
+		self.cmd= 'SFinderSubmitter.sh'
 		self.cmd_args= []
 
 		# - Define dictionary with allowed options
