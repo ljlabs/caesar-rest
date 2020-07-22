@@ -6,7 +6,7 @@
 sleep 5
 echo "sshd started pid=$(ps auwx |grep [s]sh |  awk '{print $2}')"
 
-/hostGenerator.sh 2>&1 &
+python /ipManager.py 2>&1 &
 echo "started host Generator"
 /start_caesar.sh 2>&1 &
 echo "started caesar"
