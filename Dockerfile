@@ -77,3 +77,4 @@ RUN chmod +x /start_caesar.sh
 COPY init.sh /
 RUN chmod +x /init.sh
 COPY ipManager.py /
+COPY ipFetcher.py /
